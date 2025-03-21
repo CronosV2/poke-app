@@ -35,19 +35,28 @@ export const PokemonList = () => {
 
     return (
         <View className="flex-1 bg-red-600">
-              <Text className="text-center text-2xl font-bold text-white">Pokemons</Text>
-              <FlatList
-                contentContainerStyle={{ padding: 20 }}
-                numColumns={2}
+              <Text className="text-center text-2xl font-bold p-4 top-4 text-white">Pokemons</Text>
+              <FlatList className="flex-1 "
+                contentContainerStyle={{ padding: 30 }}
+                numColumns={3}
                 data={pokemons}
                 renderItem={({ item }) => (
-                    <View className="bg-white rounded-lg p-4 m-2">
-                        <Image source={{ uri: item.sprites.front_default }} className="w-20 h-20" />
-                        <Text className="text-center text-lg font-bold">{item.name}</Text>
+                    <View className="bg-white rounded-lg p-6 m-2 flex-1 items-center justify-center mx-2">
+                        <View className="items-center justify-center w-full">
+                            <Image 
+                                source={{ uri: item.sprites.front_default }} 
+                                className="w-20 h-20 " 
+                                resizeMode="contain"
+                            />
+                            <Text className="text-center text-xs font-bold capitalize mt-2" numberOfLines={1}>
+                                {item.name}
+                            </Text>
+                        </View>
                     </View>
                 )}
               />
         </View>
     );
 };
+
 
